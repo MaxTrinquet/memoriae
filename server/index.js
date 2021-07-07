@@ -1,19 +1,18 @@
-const express = require('express')
-const cors = require('cors')
-const app = express()
-const apiPort = 3000
+const express = require("express");
+const app = express();
+const cors = require("cors");
 
-app.use(cors())
+app.use(cors());
+app.use(express.json());
+// get driver connection
+const Db = require("./db/index");
+const port = 3000
 
-const dbo = require("./db/index")
+app.listen(port, () => {
+  // perform a database connection when server starts
+  Db.connectToServer(function (err) {
+    if (err) console.error(err);
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-app.listen(apiPort, () => {
-    console.log(`Server running on port ${apiPort}`)
-    dbo.connectToServer(function (err) {
-      if (err) console.error(err);
-    })
-  })
+  });
+  console.log(`Server is running on port: ${port}`);
+});
