@@ -2,11 +2,16 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 
+const ingredientRouter = require('./routes/ingredient-router')
+const Db = require("./db/index");
+
 app.use(cors());
 app.use(express.json());
 // get driver connection
-const Db = require("./db/index");
+
 const port = 3000
+
+app.use('/api', ingredientRouter)
 
 app.listen(port, () => {
   // perform a database connection when server starts
