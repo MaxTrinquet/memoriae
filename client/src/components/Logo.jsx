@@ -9,7 +9,7 @@ const Wrapper = styled.a.attrs({
 class Logo extends Component {
   render() {
     return (
-      <Wrapper href="https://sambarros.com">
+      <Wrapper>
       </Wrapper>
     )
   }
