@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import api from '../api'
+import api from '../conn'
 
 import styled from 'styled-components'
 import ReactTable from "react-table-6";
@@ -70,8 +70,6 @@ class IngredientsList extends Component {
 
   render() {
     const { ingredients, isLoading } = this.state
-    console.log('TCL: IngredientsList -> render -> ingredients', ingredients)
-
     const columns = [
       {
         Header: 'Name',
@@ -115,7 +113,6 @@ class IngredientsList extends Component {
         },
       },
     ]
-    console.log(ingredients)
     let showTable = true
     if (!ingredients) {
       showTable = false

@@ -11,7 +11,7 @@ app.use(express.json());
 
 const port = 3000
 
-app.use('/api', ingredientRouter)
+app.use('/conn', ingredientRouter)
 
 app.listen(port, () => {
   // perform a database connection when server starts

@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'http://localhost:3000/api',
+  baseURL: 'http://localhost:3000/conn',
 })
 
 export const insertIngredient = payload => api.post(`/ingredient`, payload)
@@ -10,7 +10,7 @@ export const updateIngredientById = (id, payload) => api.put(`/ingredient/${id}`
 export const deleteIngredientById = id => api.delete(`/ingredient/${id}`)
 export const getIngredientById = id => api.get(`/ingredient/${id}`)
 
-const apis = {
+const conn = {
   insertIngredient,
   getAllIngredients,
   updateIngredientById,
@@ -18,4 +18,4 @@ const apis = {
   getIngredientById,
 }
 
-export default apis
+export default conn
